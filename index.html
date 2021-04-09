@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="./assets/style.css">
+	<title>Grid Game</title>
+</head>
+
+<body>
+	<div id="numbers-container" class="number-container">
+		<div class="item">Size:</div>
+		<div class="item button" data-grid-size="5">5</div>
+		<div class="item button" data-grid-size="6">6</div>
+		<div class="item button" data-grid-size="7">7</div>
+		<div class="item button" data-grid-size="8">8</div>
+		<div class="item button" data-grid-size="9">9</div>
+		<div class="item button" data-grid-size="10">10</div>
+		<div class="item">Next: </div>
+		<div class="item" id="next-number">1</div>
+		<div id="try-again-button" class="item button">Try again</div>
+	</div>
+
+	<div class="layout">
+		<div id="grid-container" class="container" data-grid-size="6" style="--size: 6;">
+
+		</div>
+	</div>
+
+	<style>
+		.layout {
+			display: grid;
+			justify-content: center;
+			align-items: center;
+		}
+
+		.number-container {
+			display: grid;
+			grid-template-columns: 1fr, 1fr;
+			grid-gap: 5px;
+			grid-auto-flow: column;
+		}
+
+		.container {
+			margin-top: 30px;
+			display: grid;
+			grid-template-columns: repeat(var(--size, 10), calc(7vh));
+			grid-template-rows: repeat(var(--size, 10), calc(7vh));
+			grid-gap: 5px;
+			grid-auto-flow: row;
+		}
+
+		.button {
+			background-color: #770bbe;
+			color: whitesmoke;
+			font-weight: 700;
+		}
+
+		.last-item {
+			border: 3px solid whitesmoke;
+		}
+	</style>
+
+	<script type="module" src="app.js"></script>
+
+</body>
+
+</html>
